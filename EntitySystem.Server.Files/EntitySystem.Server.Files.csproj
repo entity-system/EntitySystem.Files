@@ -3,6 +3,10 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
+		<Version>0.1.1</Version>
+		<Authors>David Janousek</Authors>
+		<RepositoryUrl>https://github.com/entity-system/EntitySystem</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
