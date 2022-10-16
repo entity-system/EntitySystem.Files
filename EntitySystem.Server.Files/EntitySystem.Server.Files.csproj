@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="EntitySystem.Server" Version="0.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\EntitySystem.Client.Files\EntitySystem.Client.Files.csproj" />
+	  <ProjectReference Include="..\EntitySystem.Shared.Files\EntitySystem.Shared.Files.csproj" />
+	</ItemGroup>
+
+</Project>

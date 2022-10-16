@@ -1,0 +1,21 @@
+﻿@using EntitySystem.Shared.Files.Domain
+@using EntitySystem.Client.Abstract.Components
+@using EntitySystem.Client.Files.Services
+
+@typeparam TKey
+@typeparam TFileReference where TFileReference : IFileReference
+
+@inherits BaseRendered<DataRecordListZipButtonParameters<TKey, TFileReference>>
+
+@inject IFileZipDownloadService<TFileReference> _fileZipDownloadService;
+
+<button type="button" class="btn btn-outline-primary me-1" @onclick="@OnDownloadZipAsync">Download</button>
+
+@code {
+    private async Task OnDownloadZipAsync()
+    {
+        var files = Parameters.RecordList.Selected.Select(i => Parameters.FileReferenceGetter(i.Key));
+
+        await _fileZipDownloadService.DownloadZipAsync(files);
+    }
+}

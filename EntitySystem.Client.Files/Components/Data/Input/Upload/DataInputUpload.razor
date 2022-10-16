@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@using EntitySystem.Client.Components.Data.Input
+@using EntitySystem.Client.Files.Components.Data.Input.Upload.Property
+@using EntitySystem.Client.Abstract.Components
+@using EntitySystem.Shared.Files.Domain
+
+@typeparam TFileReference where	TFileReference : IFileReference
+@inherits BaseRendered<BaseDataInput<IDataInputUploadProperty<TFileReference>, TFileReference, TFileReference>>
+
+@if (Parameters.Entity is {Id: > 0} file)
+{
+	<a href="@Parameters.Property.GetLink(file)">@file.Name</a>
+}
+else
+{
+	<InputFile id="@Parameters.Guid" disabled="@Parameters.ReadOnly" OnChange="@OnSelected"/>
+}
+
+@code {
+	void OnSelected(InputFileChangeEventArgs eventArgs)
+    {
+        Parameters.Property.BrowserFile = eventArgs.File;
+    }
+}
